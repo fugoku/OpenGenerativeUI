@@ -2,11 +2,11 @@
   "name": "copilotkit-langgraph-template",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"turbo run dev\" \"pnpm run dev:agent\" --names turbo,agent --kill-others",
-    "dev:app": "turbo run dev --filter='@repo/app'",
-    "dev:agent": "cd apps/agent && uv sync && uv run uvicorn main:app --host 0.0.0.0 --port 8123 --reload",
-    "dev:mcp": "turbo run dev --filter='open-generative-ui-mcp'",
-    "build": "turbo run build",
+    "dev": "node init && concurrently \"turbo run dev\" \"pnpm run dev:agent\" --names turbo,agent --kill-others",
+    "dev:app": "node init && turbo run dev --filter='@repo/app'",
+    "dev:agent": "node init && cd apps/agent && uv sync && uv run uvicorn main:app --host 0.0.0.0 --port 8123 --reload",
+    "dev:mcp": "node init && turbo run dev --filter='open-generative-ui-mcp'",
+    "build": "node init && turbo run build",
     "lint": "turbo run lint",
     "clean": "turbo run clean"
   },
